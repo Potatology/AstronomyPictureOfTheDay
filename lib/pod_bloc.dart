@@ -10,12 +10,11 @@ Future<List<Apod>> fetchApods() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     //print(response.body);
-    Iterable l = convert.jsonDecode(response.body);
-    List<Apod> apods =
-        List<Apod>.from(l.map((jsonObj) => Apod.fromJson(jsonObj)));
-    for (var i = 0; i < apods.length; i++) {
-      if (apods[i].mediaType == 'video') {
-        apods.removeAt(i);
+    Iterable data = convert.jsonDecode(response.body);
+    List<Apod> apods = [];
+    for (var item in data) {
+      if (item['media_type'] == 'image') {
+        apods.add(Apod.fromJson(item));
       }
     }
     return apods;
