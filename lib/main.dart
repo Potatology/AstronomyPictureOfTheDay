@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
       ),
       home: HomePage(),
     );
@@ -54,8 +54,19 @@ class _HomePageState extends State<HomePage> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return CircularProgressIndicator();
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Color.fromRGBO(0, 0, 50, 1),
+            ),
+          );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _bloc.apodEventSink.add(GetApods());
+        },
+        child: const Icon(Icons.refresh),
+        backgroundColor: Color.fromRGBO(0, 0, 80, 1),
       ),
     );
   }
@@ -64,10 +75,10 @@ class _HomePageState extends State<HomePage> {
     return CustomScrollView(slivers: [
       SliverAppBar(
           title: Text(
-            'Astronomy Picture Of the Day',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            'Astronomy Picture\n Of the Day',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          elevation: 10,
+          pinned: true,
           expandedHeight: 150,
           flexibleSpace: Image.network(
             snapshot.data[9].url,
@@ -126,7 +137,11 @@ class ApodContainer extends StatelessWidget {
               height: 350,
               fit: BoxFit.cover,
               loadingBuilder: (context, child, progress) {
-                return progress == null ? child : LinearProgressIndicator();
+                return progress == null
+                    ? child
+                    : LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(0, 0, 50, 1),
+                      );
               },
             ),
             Padding(
