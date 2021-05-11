@@ -1,0 +1,6 @@
+package com.lists
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
