@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           pinned: true,
           expandedHeight: 150,
           flexibleSpace: Image.network(
-            snapshot.data[9].url,
+            snapshot.data[snapshot.data.length - 1].url,
             height: 350,
             fit: BoxFit.cover,
             color: Color.fromRGBO(0, 0, 50, 1),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
       SliverFixedExtentList(
         delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
           return ApodContainer(data: snapshot.data[index]);
-        }, childCount: 10),
+        }, childCount: snapshot.data.length),
         itemExtent: 400,
       ),
       SliverGrid(
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           },
-          childCount: 10,
+          childCount: snapshot.data.length,
         ),
       )
     ]);

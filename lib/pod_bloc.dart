@@ -5,7 +5,7 @@ import 'dart:convert' as convert;
 
 Future<List<Apod>> fetchApods() async {
   final response = await http.Client().get(Uri.parse(
-      'https://api.nasa.gov/planetary/apod?count=10&api_key=xQJLQZKFJSOeloe5y7Y8COxYaEuZvkBz5CDkFeCQ'));
+      'https://api.nasa.gov/planetary/apod?count=12&api_key=xQJLQZKFJSOeloe5y7Y8COxYaEuZvkBz5CDkFeCQ'));
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
@@ -13,6 +13,11 @@ Future<List<Apod>> fetchApods() async {
     Iterable l = convert.jsonDecode(response.body);
     List<Apod> apods =
         List<Apod>.from(l.map((jsonObj) => Apod.fromJson(jsonObj)));
+    for (var i = 0; i < apods.length; i++) {
+      if (apods[i].mediaType == 'video') {
+        apods.removeAt(i);
+      }
+    }
     return apods;
   } else {
     // If the server did not return a 200 OK response,
