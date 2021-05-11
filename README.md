@@ -6,7 +6,9 @@ State management: Stream based bloc
 UI: Sliver based CustomScrollView with SliverAppBar, List and Grid.
 
 How to use:
-  Set up Flutter and run in your fav IDE.
+  Set up Flutter and run in your favorite (or any) IDE.
+  Alternatively use Flutter CLI command: $flutter run
+  If for any reason you want to run in any other mode: https://flutter.dev/docs/testing/build-modes
 author: Vlad Strigunov
 
 <img width="464" alt="Screen Shot 2021-05-10 at 6 16 42 PM" src="https://user-images.githubusercontent.com/30988129/117743854-7af86800-b1bc-11eb-881e-57e16ca4f903.png">
