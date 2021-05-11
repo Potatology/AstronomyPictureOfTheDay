@@ -1,16 +1,18 @@
-# lists
+# APOD Flutter app
 
-A new Flutter application.
+Flutter UI that pulls fantastic pictures from NASA APOD API https://apod.nasa.gov/apod/astropix.html
 
-## Getting Started
+State management: Stream based bloc
+UI: Sliver based CustomScrollView with SliverAppBar, List and Grid.
 
-This project is a starting point for a Flutter application.
+How to use:
+Set up Flutter and run in your favorite (or any) IDE./n
+Alternatively use Flutter CLI command: $flutter run
 
-A few resources to get you started if this is your first Flutter project:
+If for any reason you want to run in any other mode: https://flutter.dev/docs/testing/build-modes
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+author: Vlad Strigunov
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="464" alt="Screen Shot 2021-05-10 at 6 16 42 PM" src="https://user-images.githubusercontent.com/30988129/117743854-7af86800-b1bc-11eb-881e-57e16ca4f903.png">
+<img width="476" alt="Screen Shot 2021-05-10 at 6 16 54 PM" src="https://user-images.githubusercontent.com/30988129/117743858-7cc22b80-b1bc-11eb-8c77-f36e2383e101.png">
+<img width="466" alt="Screen Shot 2021-05-10 at 6 19 30 PM" src="https://user-images.githubusercontent.com/30988129/117743866-7e8bef00-b1bc-11eb-8443-9c8a30ce4a0b.png">
