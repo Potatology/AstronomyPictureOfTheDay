@@ -16,11 +16,11 @@ class Apod {
 
   factory Apod.fromJson(Map<String, dynamic> json) {
     return Apod(
-        title: json['title'] ?? 'No title',
-        author: json['copyright'] ?? 'No author',
-        date: json['date'] ?? 'No date',
-        explanation: json['explanation'] ?? 'No explanation',
+        title: json['title'] ?? null,
+        author: json['copyright'] ?? null,
+        date: json['date'] ?? null,
+        explanation: json['explanation'] ?? null,
         url: json['url'] ?? 'No url',
-        mediaType: json['mediaType'] ?? 'No type');
+        mediaType: json['mediaType'] ?? null);
   }
 }
