@@ -3,8 +3,8 @@ import 'Apod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
-Future<List<Apod>> fetchApods() async {
-  final response = await http.Client().get(Uri.parse(
+Future<List<Apod>> fetchApods(http.Client client) async {
+  final response = await client.get(Uri.parse(
       'https://api.nasa.gov/planetary/apod?count=12&api_key=xQJLQZKFJSOeloe5y7Y8COxYaEuZvkBz5CDkFeCQ'));
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -45,7 +45,7 @@ class PodBloc {
 
   void _mapEventToState(ApodEvent event) async {
     if (event is GetApods) {
-      apods = await fetchApods();
+      apods = await fetchApods(http.Client());
     }
     _apodViewStateSink.add(apods);
   }
